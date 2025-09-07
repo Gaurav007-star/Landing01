@@ -39,6 +39,7 @@ import BentoGrid from "./components/custom/BentoGrid";
 import LogoMarquee from "./components/custom/LogoMarquee";
 import CtaSection from "./components/custom/CtaSection";
 import { RetroGrid } from "./components/magicui/retro-grid";
+import { StaggerTestimonials } from "./components/stagger-testimonials";
 
 // --- Utility data ---
 const nav = [
@@ -296,15 +297,15 @@ function Works() {
 
 function Education() {
   return (
-    <section id="education" className="py-16 sm:py-20 bg-zinc-50">
+    <section id="education" className="py-16 sm:py-20">
       <div className={`${container} space-y-10`}>
         <SectionHeader title="The Smart Choice." />
         <div className="grid md:grid-cols-3 gap-6">
           {edu.map((e) => (
-            <Card key={e.title} className="rounded-2xl">
+            <Card key={e.title} className="rounded-lg bg-violet-700 text-white">
               <CardHeader>
-                <CardTitle className="text-lg">{e.title}</CardTitle>
-                <p className="text-zinc-600">{e.desc}</p>
+                <CardTitle className="text-[24px] font-semibold">{e.title}</CardTitle>
+                <p className="">{e.desc}</p>
               </CardHeader>
             </Card>
           ))}
@@ -316,11 +317,15 @@ function Education() {
 
 function Testimonials() {
   return (
-    <section
-      id="testimonials"
-      className="py-16 sm:py-20 bg-violet-700 text-white"
-    >
-      <div className={`${container} space-y-10`}>
+    <section id="testimonials" className="py-16 sm:py-20">
+      <h2 className="text-3xl sm:text-4xl w-full text-center font-extrabold tracking-tight">
+        Happy Clients Say
+      </h2>
+      <p className="text-slate-700 w-full text-center mt-2">
+        Some kind words from collaborators.
+      </p>
+
+      {/* <div className={`${container} space-y-10`}>
         <div className="text-center space-y-2">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             Happy Clients Say
@@ -349,7 +354,8 @@ function Testimonials() {
             </Card>
           ))}
         </div>
-      </div>
+      </div> */}
+      <StaggerTestimonials />
     </section>
   );
 }
@@ -390,14 +396,16 @@ function Blog() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-16 sm:py-20 h-[500px] w-full overflow-hidden"> 
+    <section
+      id="contact"
+      className="py-16 sm:py-20 h-[500px] w-full overflow-hidden"
+    >
       {/* <RetroGrid className={`w-full h-full object-cover`}/> */}
       <div className={`${container} grid lg:grid-cols-2 gap-10 items-start`}>
         <div className="">
-            <h1 className="text-[40px] font-semibold">Let’s connect there</h1>
-            <h2>Just want to say hi? Drop a line.</h2>
+          <h1 className="text-[40px] font-semibold">Let’s connect there</h1>
+          <h2>Just want to say hi? Drop a line.</h2>
           <div className="space-y-3 text-sm mt-5">
-
             <p className="flex items-center gap-2">
               <Mail className="h-4 w-4" /> hello@jon.design
             </p>
@@ -443,7 +451,9 @@ function Contact() {
               placeholder="Write your message…"
               className="min-h-[140px]"
             />
-            <Button className="rounded-lg bg-slate-900 hover:bg-violet-700 cursor-pointer hover:scale-105 transition-transform duration-200">Send Message</Button>
+            <Button className="rounded-lg bg-slate-900 hover:bg-violet-700 cursor-pointer hover:scale-105 transition-transform duration-200">
+              Send Message
+            </Button>
           </CardContent>
         </Card>
       </div>
@@ -479,11 +489,11 @@ export default function App() {
         <Hero />
         <AboutUs />
         <Works />
-        <BentoGrid/>
+        <BentoGrid />
         <Education />
         <Testimonials />
-        <LogoMarquee/>
-        <CtaSection/>
+        <LogoMarquee />
+        <CtaSection />
         <Contact />
       </main>
       <Footer />
