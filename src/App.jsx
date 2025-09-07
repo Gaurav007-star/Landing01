@@ -20,6 +20,7 @@ import {
   Award,
   GraduationCap,
   Star,
+  Facebook,
   Quote,
   Menu,
   X,
@@ -35,6 +36,9 @@ import { RiApps2AiLine } from "react-icons/ri";
 import { SiMaterialdesignicons } from "react-icons/si";
 import { cn } from "./lib/utils";
 import BentoGrid from "./components/custom/BentoGrid";
+import LogoMarquee from "./components/custom/LogoMarquee";
+import CtaSection from "./components/custom/CtaSection";
+import { RetroGrid } from "./components/magicui/retro-grid";
 
 // --- Utility data ---
 const nav = [
@@ -199,7 +203,7 @@ function Hero() {
             Marketing That Clicks. Results That Stick.
           </p>
           <div className="flex flex-wrap items-center gap-3">
-            <Button className="rounded-lg p-6 text-[18px] cursor-pointer hover:bg-slate-100 hover:text-black">
+            <Button className="rounded-lg p-6 text-[18px] cursor-pointer bg-slate-900 hover:bg-slate-100 hover:text-black">
               Get in touch
             </Button>
           </div>
@@ -257,7 +261,7 @@ function AboutUs() {
             accelerate growth.
           </p>
           <div className="flex flex-wrap items-center gap-3 mt-10">
-            <Button className="rounded-lg p-6 text-[18px] cursor-pointer hover:bg-violet-700 hover:text-white hover:scale-105 transition-transform duration-200">
+            <Button className="rounded-lg p-6 text-[18px] cursor-pointer bg-slate-900 hover:bg-violet-700 hover:text-white hover:scale-105 transition-transform duration-200">
               Contact Us
             </Button>
           </div>
@@ -386,14 +390,14 @@ function Blog() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-zinc-50">
+    <section id="contact" className="py-16 sm:py-20 h-[500px] w-full overflow-hidden"> 
+      {/* <RetroGrid className={`w-full h-full object-cover`}/> */}
       <div className={`${container} grid lg:grid-cols-2 gap-10 items-start`}>
-        <div className="space-y-4">
-          <SectionHeader
-            title="Let’s connect there"
-            desc="Have an opportunity or just want to say hi? Drop a line."
-          />
-          <div className="space-y-3 text-sm">
+        <div className="">
+            <h1 className="text-[40px] font-semibold">Let’s connect there</h1>
+            <h2>Just want to say hi? Drop a line.</h2>
+          <div className="space-y-3 text-sm mt-5">
+
             <p className="flex items-center gap-2">
               <Mail className="h-4 w-4" /> hello@jon.design
             </p>
@@ -416,7 +420,7 @@ function Contact() {
                 aria-label="GitHub"
                 className="p-2 rounded-full border hover:bg-white"
               >
-                <Github className="h-4 w-4" />
+                <Facebook className="h-4 w-4" />
               </a>
               <a
                 href="#"
@@ -439,7 +443,7 @@ function Contact() {
               placeholder="Write your message…"
               className="min-h-[140px]"
             />
-            <Button className="rounded-2xl">Send Message</Button>
+            <Button className="rounded-lg bg-slate-900 hover:bg-violet-700 cursor-pointer hover:scale-105 transition-transform duration-200">Send Message</Button>
           </CardContent>
         </Card>
       </div>
@@ -453,16 +457,13 @@ function Footer() {
       <div
         className={`${container} py-10 flex flex-col sm:flex-row gap-4 items-center justify-between text-sm text-zinc-600`}
       >
-        <p>© {new Date().getFullYear()} Jon Dawson. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Teni. All rights reserved.</p>
         <div className="flex items-center gap-4">
           <a href="#" className="hover:text-violet-700">
             Privacy
           </a>
           <a href="#" className="hover:text-violet-700">
             Terms
-          </a>
-          <a href="#home" className="hover:text-violet-700">
-            Back to top
           </a>
         </div>
       </div>
@@ -481,7 +482,8 @@ export default function App() {
         <BentoGrid/>
         <Education />
         <Testimonials />
-        <Blog />
+        <LogoMarquee/>
+        <CtaSection/>
         <Contact />
       </main>
       <Footer />

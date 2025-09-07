@@ -43,7 +43,13 @@
   --color-primary:#715dd7
   --color-secondary:#715dd7
 
-}
+;
+  --animate-grid: grid 15s linear infinite;
+  @keyframes grid {
+  0% {
+    transform: translateY(-50%);}
+  100% {
+    transform: translateY(0);}}}
 
 :root {
   font-family: var(--font-satoshi);

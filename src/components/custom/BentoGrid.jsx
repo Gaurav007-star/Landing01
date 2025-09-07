@@ -24,7 +24,7 @@ export default function FeaturedWorks() {
   return (
     <section className="py-10 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-[40px] font-extrabold text-center mb-8">
+        <h2 className="text-3xl sm:text-[40px] font-extrabold text-center my-8">
           Profile.
         </h2>
 
@@ -38,7 +38,7 @@ export default function FeaturedWorks() {
         >
           {/* Tall left block */}
           <div
-            className={`rounded-lg shadow-lg ${tiles[0].color} lg:col-span-2 lg:row-span-2`}
+            className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2`}
           >
             <img
               src={tiles[0].image}
@@ -49,7 +49,7 @@ export default function FeaturedWorks() {
 
           {/* Top wide block */}
           <div
-            className={`rounded-lg shadow-lg ${tiles[1].color} lg:col-span-4`}
+            className={`rounded-lg shadow-lg lg:col-span-4`}
           >
             <img
               src={tiles[1].image}
@@ -60,7 +60,7 @@ export default function FeaturedWorks() {
 
           {/* Middle row */}
           <div
-            className={`rounded-lg shadow-lg ${tiles[2].color} lg:col-span-2 lg:row-span-2`}
+            className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2`}
           >
             <img
               src={tiles[2].image}
@@ -69,7 +69,7 @@ export default function FeaturedWorks() {
             />
           </div>
           <div
-            className={`rounded-lg shadow-lg ${tiles[3].color} lg:col-span-2 lg:row-span-2`}
+            className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2`}
           >
             <img
               src={tiles[3].image}
@@ -78,7 +78,7 @@ export default function FeaturedWorks() {
             />
           </div>
           <div
-            className={`rounded-lg shadow-lg ${tiles[4].color} lg:col-span-2`}
+            className={`rounded-lg shadow-lg lg:col-span-2`}
           >
             <img
               src={tiles[4].image}
@@ -89,7 +89,7 @@ export default function FeaturedWorks() {
 
           {/* Bottom row */}
           <div
-            className={`rounded-lg shadow-lg ${tiles[5].color} lg:col-span-3`}
+            className={`rounded-lg shadow-lg lg:col-span-3`}
           >
             <img
               src={tiles[5].image}
@@ -98,7 +98,7 @@ export default function FeaturedWorks() {
             />
           </div>
           <div
-            className={`rounded-lg shadow-lg ${tiles[6].color} lg:col-span-3`}
+            className={`rounded-lg shadow-lg lg:col-span-3`}
           >
             <img
               src={tiles[6].image}
@@ -109,7 +109,7 @@ export default function FeaturedWorks() {
 
           {/* Full-width bottom */}
           <div
-            className={`rounded-lg shadow-lg ${tiles[7].color} lg:col-span-6`}
+            className={`rounded-lg shadow-lg lg:col-span-6`}
           >
             <img
               src={tiles[7].image}
