@@ -23,10 +23,11 @@ const tiles = [
 export default function FeaturedWorks() {
   return (
     <section className="py-10 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-[40px] font-extrabold text-center my-8">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
+        <h2 className="text-3xl sm:text-[40px] font-extrabold text-center mt-8">
           Profile.
         </h2>
+        <p className="mt-2 mb-15">Empowering brands to stand out online.</p>
 
         {/* Bento grid layout */}
         <div
@@ -37,9 +38,7 @@ export default function FeaturedWorks() {
             auto-rows-[180px]"
         >
           {/* Tall left block */}
-          <div
-            className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2`}
-          >
+          <div className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[0].image}
               alt=""
@@ -48,9 +47,7 @@ export default function FeaturedWorks() {
           </div>
 
           {/* Top wide block */}
-          <div
-            className={`rounded-lg shadow-lg lg:col-span-4`}
-          >
+          <div className={`rounded-lg shadow-lg lg:col-span-4 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[1].image}
               alt=""
@@ -59,27 +56,21 @@ export default function FeaturedWorks() {
           </div>
 
           {/* Middle row */}
-          <div
-            className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2`}
-          >
+          <div className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[2].image}
               alt=""
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
-          <div
-            className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2`}
-          >
+          <div className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[3].image}
               alt=""
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
-          <div
-            className={`rounded-lg shadow-lg lg:col-span-2`}
-          >
+          <div className={`rounded-lg shadow-lg lg:col-span-2 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[4].image}
               alt=""
@@ -88,18 +79,14 @@ export default function FeaturedWorks() {
           </div>
 
           {/* Bottom row */}
-          <div
-            className={`rounded-lg shadow-lg lg:col-span-3`}
-          >
+          <div className={`rounded-lg shadow-lg lg:col-span-3 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[5].image}
               alt=""
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
-          <div
-            className={`rounded-lg shadow-lg lg:col-span-3`}
-          >
+          <div className={`rounded-lg shadow-lg lg:col-span-3 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[6].image}
               alt=""
@@ -108,9 +95,7 @@ export default function FeaturedWorks() {
           </div>
 
           {/* Full-width bottom */}
-          <div
-            className={`rounded-lg shadow-lg lg:col-span-6`}
-          >
+          <div className={`rounded-lg shadow-lg lg:col-span-6 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[7].image}
               alt=""
@@ -118,7 +103,6 @@ export default function FeaturedWorks() {
             />
           </div>
         </div>
-
       </div>
     </section>
   );
