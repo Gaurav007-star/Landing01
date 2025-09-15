@@ -232,7 +232,7 @@ const Service = () => {
         className="py-16 px-[10vw] min-[1600px]:px-[18vw] bg-[#121212] text-white mt-20"
       >
         <div className={`space-y-10`}>
-          <SectionHeader title="Why choose us ?" size={100} />
+          <SectionHeader title="Social Media Marketing" size={100} />
           <div className="grid md:grid-cols-3 justify-center gap-6">
             {pricing.map((item) => {
               return (
@@ -304,7 +304,7 @@ const Service = () => {
         </div>
       </section>
 
-      {/* Web Application*/}
+      {/* Features*/}
       <section
         id="education"
         className="py-16 px-[10vw] min-[1600px]:px-[18vw] text-black "
