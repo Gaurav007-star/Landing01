@@ -23,11 +23,11 @@ const tiles = [
 export default function FeaturedWorks() {
   return (
     <section className="py-10 px-4">
-      <div className="max-w-6xl mx-auto flex flex-col items-center">
-        <h2 className="text-3xl sm:text-[40px] font-extrabold text-center mt-8">
+      <div className="max-w-6xl mx-auto flex flex-col items-center -space-y-[20px]">
+        <h2 className="text-[60px] sm:text-[100px] font-extrabold text-center mt-8">
           Profile.
         </h2>
-        <p className="mt-2 mb-15">Empowering brands to stand out online.</p>
+        <p className="mt-2 mb-15 text-[30px] sm:text-[40px] text-center">Empowering brands to stand out online.</p>
 
         {/* Bento grid layout */}
         <div

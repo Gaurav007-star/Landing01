@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -43,6 +43,7 @@ import {
 import { Link, useNavigate } from "react-router";
 import SliderComponent from "./components/SliderComponent";
 import GotoTop from "./components/GotoTop";
+import { Helmet } from "react-helmet";
 
 // --- Utility data ---
 const nav = [
@@ -137,24 +138,21 @@ function PlaceholderThumb({ label }) {
 }
 
 export function SectionHeader({ eyebrow, title, desc, color, size }) {
-  const actualsize = `text-[${size}] max-[450px]:text-[60px]`;
+
   return (
-    <div className="text-center space-y-2">
+    <div className="text-center max-[450px]:-space-y-[5px]">
       {eyebrow && (
         <span className="inline-flex items-center gap-2 rounded-full bg-violet-100 text-violet-700 px-3 py-1 text-xs font-medium">
           {eyebrow}
         </span>
       )}
       <h2
-        className={cn(
-          "font-extrabold tracking-tight w-full max-[450px]:text-[20px]",
-          size && actualsize
-        )}
+        className="font-extrabold tracking-tight w-full text-[100px] max-[450px]:text-[50px] max-[450px]:leading-17"
         style={{ color }}
       >
         {title}
       </h2>
-      {desc && <p className="text-zinc-600 max-w-2xl mx-auto">{desc}</p>}
+      {desc && <p className="text-zinc-600 max-w-2xl text-[40px] max-[450px]:text-[30px] mx-auto">{desc}</p>}
     </div>
   );
 }
@@ -331,6 +329,7 @@ function Services() {
           title="Our Services."
           desc={"Driving Innovation with Digital Mastery"}
           color={"black"}
+          size={100}
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mt-15">
           {works.map((w, i) => (
@@ -383,14 +382,7 @@ function SmartChoice() {
 function Testimonials() {
   return (
     <section id="testimonials" className="py-16 sm:py-20">
-      <h2 className="text-3xl sm:text-4xl w-full text-center font-extrabold tracking-tight">
-        Happy Clients Say
-      </h2>
-
-      <p className="text-slate-700 w-full text-center mt-2">
-        Some kind words from collaborators.
-      </p>
-
+      <SectionHeader title={"Happy Clients Say"} desc={"Some kind words from collaborators."}/>
       <StaggerTestimonials />
     </section>
   );
@@ -522,6 +514,9 @@ export function Footer() {
 export default function App() {
   return (
     <div className="min-h-screen w-full bg-white text-zinc-900">
+      <Helmet>
+        <title>Teni..A solution for branding</title>
+      </Helmet>
       <Nav />
       <main>
         <Hero />
