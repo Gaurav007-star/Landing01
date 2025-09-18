@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,8 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import BlackLogo from "./assets/Teni_Logo-01.png";
 import WhiteLogo from "./assets/Teni_Logo-04.png";
-
-import heroBackground from "./assets/heroBackground.jpg";
 import aboutBackground from "./assets/aboutBackground.jpg";
 import { SiGooglemarketingplatform } from "react-icons/si";
 import {
@@ -43,6 +41,8 @@ import {
   FaLinkedin
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
+import SliderComponent from "./components/SliderComponent";
+import GotoTop from "./components/GotoTop";
 
 // --- Utility data ---
 const nav = [
@@ -137,6 +137,7 @@ function PlaceholderThumb({ label }) {
 }
 
 export function SectionHeader({ eyebrow, title, desc, color, size }) {
+  const actualsize = `text-[${size}] max-[450px]:text-[60px]`;
   return (
     <div className="text-center space-y-2">
       {eyebrow && (
@@ -146,9 +147,10 @@ export function SectionHeader({ eyebrow, title, desc, color, size }) {
       )}
       <h2
         className={cn(
-          "text-3xl/tight sm:text-[40px] font-extrabold tracking-tight w-full "
+          "font-extrabold tracking-tight w-full max-[450px]:text-[20px]",
+          size && actualsize
         )}
-        style={{ color, fontSize: size }}
+        style={{ color }}
       >
         {title}
       </h2>
@@ -163,7 +165,7 @@ export function Nav() {
   return (
     <header className="absolute top-5 z-40 w-full h-max text-violet-700">
       <div
-        className={`${container} flex items-center justify-between !px-20 py-6 rounded-full bg-violet-700 backdrop-blur-lg text-white`}
+        className={`${container} flex items-center justify-between !px-20 max-[450px]:!px-5 py-6 rounded-full bg-violet-700 backdrop-blur-lg text-white`}
       >
         <img
           src={WhiteLogo}
@@ -177,7 +179,7 @@ export function Nav() {
             <Link
               key={n.href}
               to={n.href}
-              className="hover:text-black cursor-pointer text-[24px]"
+              className="hover:scale-105 transition-transform duration-200 cursor-pointer text-[24px]"
             >
               {n.label}
             </Link>
@@ -185,7 +187,7 @@ export function Nav() {
         </nav>
 
         <ScrollLink to="contact" smooth={true} duration={500}>
-          <Button className="rounded-full p-6 cursor-pointer text-[20px] bg-white hover:bg-black hover:text-white text-black hover:scale-105  transition-transform duration-200">
+          <Button className="rounded-full p-6 cursor-pointer text-[20px] bg-white hover:bg-black hover:text-white text-black hover:scale-105  transition-transform duration-200 max-[450px]:hidden">
             Contact
           </Button>
         </ScrollLink>
@@ -199,7 +201,7 @@ export function Nav() {
       </div>
       {open && (
         <div className="md:hidden border-t bg-white">
-          <div className={`${container} py-3 grid gap-2`}>
+          <div className={`${container} py-3 grid gap-2 text-[20px]`}>
             {nav.map((n) => (
               <a
                 key={n.href}
@@ -211,55 +213,58 @@ export function Nav() {
               </a>
             ))}
           </div>
+
+          <ScrollLink to="contact" smooth={true} duration={500}>
+            <div className="px-5 w-full h-max ">
+              <Button className="rounded-full w-full h-max p-4 cursor-pointer text-[20px] bg-violet-700 text-white hover:scale-105 transition-transform duration-200 ">
+                Contact
+              </Button>
+            </div>
+          </ScrollLink>
         </div>
       )}
     </header>
   );
 }
 
-// import homeBanner1 from "./assets/homeBanner1.jpg";
-// import homeBanner2 from "../assets/homeBanner2.jpg";
-// import homeBanner3 from "../assets/homeBanner3.jpg";
-
 export function Hero() {
+  const navigate = useNavigate();
   return (
     <section
       id="home"
-      className="text-black h-screen w-full flex items-center justify-center pt-20 min-[1600px]:px-[10vw]"
+      className="text-black h-screen w-full flex max-[450px]:flex-col items-center justify-center pt-20 max-[400px]:mt-40  min-[1600px]:px-[10vw]"
     >
-      <div className="left-side w-[50%] h-full  flex flex-col items-center justify-center">
-        <div className="box space-y-2">
-          <h1 className="text-4xl sm:text-[60px] font-extrabold tracking-tight">
+      <div className="left-side w-[50%] max-[450px]:w-full h-full flex flex-col items-center justify-center max-[400px]:mb-10">
+        <div className="box space-y-2 w-full h-max pl-40 max-[450px]:pl-2">
+          <h1 className="text-5xl sm:text-[60px] font-extrabold tracking-tight">
             Helping Clients <br /> to Grow <br /> Business Digitally
           </h1>
           <p className=" max-w-xl text-[20px]">
             Marketing That Clicks. Results That Stick.
           </p>
-          <div className="w-full h-max flex flex-wrap  gap-3 mt-10">
-            <Button className="rounded-full p-6 text-[18px] cursor-pointer bg-slate-900 hover:bg-slate-100 hover:text-black">
-              Get in touch
-            </Button>
 
-            <Button className="rounded-full p-6 text-[18px] cursor-pointer bg-violet-700 hover:bg-slate-100 hover:text-black">
+          <div className="w-full h-max flex flex-wrap  gap-3 mt-10 max-[450px]:mt-5">
+            <ScrollLink to="contact" smooth={true} duration={500}>
+              <Button className="rounded-full p-6 text-[18px] cursor-pointer bg-slate-900 hover:bg-slate-100 hover:text-black max-[450px]:p-8 max-[450px]:text-[20px]">
+                Get in touch
+              </Button>
+            </ScrollLink>
+
+            <Button
+              className="rounded-full p-6 text-[18px] cursor-pointer bg-violet-700 hover:bg-slate-100 hover:text-black max-[450px]:p-8 max-[450px]:text-[20px]"
+              onClick={() => navigate("/services")}
+            >
               Our Services
             </Button>
           </div>
         </div>
       </div>
 
-      <div className="right-side w-[50%] h-full p-10 flex items-center justify-center pr-20">
-        <img
-          src={heroBackground}
-          alt=""
-          className="object-cover w-[400px] h-[400px] rounded-md"
-          style={{
-            clipPath:
-              "polygon(4% 0, 94% 0, 100% 0, 100% 81%, 79% 100%, 50% 100%, 0 100%, 0 0)"
-          }}
-        />
+      <div className="right-side w-[50%] max-[450px]:w-full h-full p-10 flex items-center justify-center pr-20 max-[450px]:p-2">
+        <SliderComponent />
       </div>
 
-      <div className="social absolute rotate-90 right-0 flex items-center gap-2 font-bold">
+      <div className="social absolute rotate-90 max-[450px]:hidden max-[450px]:top-0 right-0 flex items-center gap-2 font-bold">
         <h1>Follow us on ---------------</h1>
         <FaFacebookSquare className="text-[20px] text-violet-700" />
         <FaInstagramSquare className="text-[20px] text-violet-700" />
@@ -273,14 +278,14 @@ function AboutUs() {
   return (
     <section id="home" className="bg-white text-black">
       <div
-        className={`${container} flex items-center gap-10 py-12 sm:py-16 h-[650px]`}
+        className={`${container} flex max-[450px]:flex-col items-center gap-10 py-12 sm:py-16 h-[650px] max-[450px]:h-max`}
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative h-full w-[50%]"
+          className="relative h-full w-[50%] max-[450px]:w-full"
         >
           <div className="aspect-square rounded-lg h-full w-full bg-white/10 border border-white/20">
             <img
@@ -291,7 +296,7 @@ function AboutUs() {
           </div>
         </motion.div>
 
-        <div className="space-y-6 w-[50%]">
+        <div className="space-y-6 w-[50%] max-[450px]:w-full">
           <h1 className="text-4xl sm:text-[50px] font-extrabold tracking-tight">
             Delivering Excellence in Web Development and Creative Arts.
           </h1>
@@ -302,9 +307,11 @@ function AboutUs() {
             accelerate growth.
           </p>
           <div className="flex flex-wrap items-center gap-3 mt-10">
-            <Button className="rounded-full p-6 text-[18px] cursor-pointer bg-slate-900 hover:bg-violet-700 hover:text-white hover:scale-105 transition-transform duration-200">
-              Contact Us
-            </Button>
+            <ScrollLink to="contact" smooth={true} duration={500}>
+              <Button className="rounded-full p-6 text-[18px] cursor-pointer bg-slate-900 hover:bg-violet-700 hover:text-white hover:scale-105 transition-transform duration-200">
+                Contact Us
+              </Button>
+            </ScrollLink>
           </div>
         </div>
       </div>
@@ -313,9 +320,13 @@ function AboutUs() {
 }
 
 function Services() {
+  const navigate = useNavigate();
+
   return (
-    <section id="works" className="py-16 sm:py-20">
-      <div className={`${container} space-y-10`}>
+    <section id="works" className="">
+      <div
+        className={`${container} space-y-10 py-16 sm:py-20 max-[450px]:p-2 w-full h-max`}
+      >
         <SectionHeader
           title="Our Services."
           desc={"Driving Innovation with Digital Mastery"}
@@ -329,6 +340,7 @@ function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.03 }}
+              onClick={() => navigate("/services")}
             >
               <ServiceCard
                 key={i}
@@ -509,7 +521,7 @@ export function Footer() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen w-full bg-white text-zinc-900">
       <Nav />
       <main>
         <Hero />
@@ -521,6 +533,7 @@ export default function App() {
         <LogoMarquee />
         <CtaSection />
         <Contact />
+        <GotoTop />
       </main>
       <Footer />
     </div>

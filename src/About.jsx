@@ -1,5 +1,6 @@
 import React from "react";
 import { Nav, Footer, Contact, SectionHeader } from "./App";
+import GotoTop from "./components/GotoTop";
 
 const Choice = [
   {
@@ -71,6 +72,8 @@ const About = () => {
 
       <Contact />
       <Footer />
+
+      <GotoTop/>
     </div>
   );
 };

@@ -35,7 +35,7 @@ export default function FeaturedWorks() {
             grid-cols-1
             sm:grid-cols-2
             lg:grid-cols-6
-            auto-rows-[180px]"
+            auto-rows-[180px] max-[450px]:w-full"
         >
           {/* Tall left block */}
           <div className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
@@ -63,6 +63,7 @@ export default function FeaturedWorks() {
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
+
           <div className={`rounded-lg shadow-lg lg:col-span-2 lg:row-span-2 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[3].image}
@@ -70,6 +71,7 @@ export default function FeaturedWorks() {
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
+
           <div className={`rounded-lg shadow-lg lg:col-span-2 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[4].image}
@@ -86,6 +88,7 @@ export default function FeaturedWorks() {
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
+          
           <div className={`rounded-lg shadow-lg lg:col-span-3 hover:scale-95 transition-transform duration-200 cursor-pointer`}>
             <img
               src={tiles[6].image}

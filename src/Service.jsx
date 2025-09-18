@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Contact, Footer, Nav, SectionHeader } from "./App";
 import { motion } from "framer-motion";
 
@@ -11,6 +11,8 @@ import { LuWebhook } from "react-icons/lu";
 import ServiceCard from "./components/custom/ServiceCard";
 import { HiCheck } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
+import { cn } from "./lib/utils";
+import GotoTop from "./components/GotoTop";
 
 const works = [
   {
@@ -191,12 +193,17 @@ const features = [
   "Billing",
   "Product Management",
   "HR Management",
-  "Warehouse Management"
+  "Warehouse Management",
+  "Customizable"
 ];
 
 const container = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8";
 
 const Service = () => {
+  useEffect(() => {
+    scrollTo({ top, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="w-full h-max">
       <Nav />
@@ -228,15 +235,14 @@ const Service = () => {
       {/* PRICING */}
 
       <section
-        id="education"
-        className="py-16 px-[10vw] min-[1600px]:px-[18vw] bg-[#121212] text-white mt-20"
+        className="py-16 px-[10vw] max-[450px]:p-5 min-[1600px]:px-[18vw] bg-[#121212] text-white mt-20"
       >
         <div className={`space-y-10`}>
           <SectionHeader title="Social Media Marketing" size={100} />
-          <div className="grid md:grid-cols-3 justify-center gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-6">
             {pricing.map((item) => {
               return (
-                <div className="card-wrapper w-full overflow-hidden rounded-lg relative border-2 border-violet-700 h-[400px] flex flex-col items-start justify-start hover:shadow-[-5px_6px_0px_#7008e7] transition-transform duration-200 cursor-pointer p-8">
+                <div className="card-wrapper w-full overflow-hidden rounded-lg relative border-2 border-violet-700 h-[400px] flex flex-col items-start justify-start hover:shadow-[-5px_6px_0px_#7008e7] transition-transform duration-200 cursor-pointer p-8 ">
                   <h1 className="text-[40px] text-center font-semibold mb-1 uppercase">
                     {item.title}
                   </h1>
@@ -285,15 +291,14 @@ const Service = () => {
 
       {/* Web Development */}
       <section
-        id="education"
         className="py-16 px-[10vw] min-[1600px]:px-[18vw] text-white bg-[#121212] "
       >
         <div className={`space-y-10`}>
           <SectionHeader title="Web Development" size={100} />
-          <div className="flex flex-wrap justify-center gap-6 ">
+          <div className="flex max-[450px]:flex-col flex-wrap justify-center gap-6 ">
             {developmentChoices.map((item) => {
               return (
-                <div className="card-wrapper w-[30%] overflow-hidden rounded-lg relative border-2 border-violet-700 h-max flex flex-col items-center justify-center hover:shadow-[-5px_6px_0px_#7008e7] transition-transform duration-200 cursor-pointer p-8">
+                <div className="card-wrapper w-[30%] max-[450px]:w-full overflow-hidden rounded-lg relative border-2 border-violet-700 h-max flex flex-col items-center justify-center hover:shadow-[-5px_6px_0px_#7008e7] transition-transform duration-200 cursor-pointer p-8">
                   <h1 className="text-[30px] text-center font-semibold mb-1 uppercase ">
                     {item}
                   </h1>
@@ -306,16 +311,16 @@ const Service = () => {
 
       {/* Features*/}
       <section
-        id="education"
+        id="feature"
         className="py-16 px-[10vw] min-[1600px]:px-[18vw] text-black "
       >
         <div className={`space-y-2`}>
           <SectionHeader title="Web Application" size={100} />
 
-          <h1 className="w-full text-center text-[40px] mt-5">
+          <h1 className="w-full text-center text-[40px] max-[450px]:text-[30px] mt-5">
             EMPOWERING STARTUPS FOR BUSINESS GROWTH
           </h1>
-          <p className="w-full text-center text-[35px] mb-10">
+          <p className="w-full text-center text-[25px] mb-10">
             We provide comprehensive Company Management Software that helps
             businesses streamline operations, manage teams, track performance,
             and make smarter decisions— all from a single, easy-to-use platform.
@@ -323,10 +328,17 @@ const Service = () => {
 
           <SectionHeader title="Features" size={100} />
 
-          <div className="flex flex-wrap justify-center gap-6 mt-10">
+          <div className="flex max-[450px]:flex-col flex-wrap justify-center gap-6 mt-10">
             {features.map((item) => {
               return (
-                <div className="card-wrapper w-[30%] overflow-hidden rounded-lg relative border-2 border-violet-700 h-max flex flex-col items-center justify-center hover:shadow-[-5px_6px_0px_#7008e7] transition-transform duration-200 cursor-pointer p-8">
+                <div
+                  className={cn(
+                    item == "Customizable"
+                      ? " bg-violet-700 hover:shadow-[-5px_6px_0px_#a684ff] text-white "
+                      : " border-2 border-violet-700 hover:shadow-[-5px_6px_0px_#7008e7] ",
+                    "card-wrapper w-[30%] max-[450px]:w-full overflow-hidden rounded-lg relative h-max flex flex-col items-center justify-center transition-transform duration-200 cursor-pointer p-8"
+                  )}
+                >
                   <h1 className="text-[20px] text-center font-semibold mb-1 uppercase ">
                     {item}
                   </h1>
@@ -339,6 +351,7 @@ const Service = () => {
 
       <Contact />
       <Footer />
+      <GotoTop/>
     </div>
   );
 };

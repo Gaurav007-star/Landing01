@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Contact, Footer, Nav, SectionHeader } from "./App";
 import image01 from "./assets/profile/profileImage/1.jpg";
 import image02 from "./assets/profile/profileImage/2.jpg";
@@ -40,6 +40,7 @@ import image37 from "./assets/profile/profileImage/37.jpg";
 import image38 from "./assets/profile/profileImage/38.jpg";
 import image39 from "./assets/profile/profileImage/39.jpg";
 import image40 from "./assets/profile/profileImage/40.jpg";
+import GotoTop from "./components/GotoTop";
 
 const images = [
   image01,
@@ -85,13 +86,16 @@ const images = [
 ];
 
 const Profile = () => {
+  useEffect(() => {
+    scrollTo({ top, behavior: "smooth" });
+  }, []);
   return (
     <div className="w-full h-max">
       <Nav />
       <div className="header w-full h-max pt-40">
-        <SectionHeader title={"Our Profile"} size={100}  />
+        <SectionHeader title={"Our Profile"} size={100} />
       </div>
-      <div className="image-section w-full h-max flex justify-center gap-4 flex-wrap pt-20 min-[1600px]:px-[10vw]">
+      <div className="image-section w-full h-max flex justify-center gap-4 flex-wrap pt-20 max-[450px]:px-5 min-[1600px]:px-[10vw]">
         {images.map((pic, index) => {
           return (
             <div
@@ -109,6 +113,7 @@ const Profile = () => {
       </div>
       <Contact />
       <Footer />
+      <GotoTop/>
     </div>
   );
 };
