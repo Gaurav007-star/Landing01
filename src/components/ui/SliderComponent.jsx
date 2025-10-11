@@ -1,14 +1,14 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules"; // 👈 add Autoplay
-import image01 from "../assets/choice/1.jpg";
-import image02 from "../assets/choice/2.jpg";
-import image03 from "../assets/choice/3.jpg";
+import image01 from "../../assets/choice/1.jpg";
+import image02 from "../../assets/choice/2.jpg";
+import image03 from "../../assets/choice/3.jpg";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "./css/swiper.css";
+import "../css/swiper.css";
 
 const imageSections = [
   { id: 1, image: image01 },

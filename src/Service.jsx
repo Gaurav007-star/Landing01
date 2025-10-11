@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import { Contact, Footer, Nav, SectionHeader } from "./App";
 import { motion } from "framer-motion";
-
 import {
   SiGooglemarketingplatform,
   SiMaterialdesignicons
@@ -12,7 +10,11 @@ import ServiceCard from "./components/custom/ServiceCard";
 import { HiCheck } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
 import { cn } from "./lib/utils";
-import GotoTop from "./components/GotoTop";
+import GotoTop from "./components/ui/GotoTop";
+import Nav from "./components/layout/Nav";
+import { SectionHeader } from "./components/layout/SectionHeader";
+import Contact from "./components/layout/Contact";
+import Footer from "./components/layout/Footer";
 
 const works = [
   {
@@ -208,8 +210,8 @@ const Service = () => {
     <div className="w-full h-max">
       <Nav />
 
-      <section id="works" className="py-16 sm:py-20">
-        <div className={`${container} space-y-10  w-full h-max pt-20`}>
+      <section id="works" className="">
+        <div className={`${container} space-y-10  w-full h-max`}>
           <SectionHeader title="Our Services." color={"black"} size={100} />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mt-15">
             {works.map((w, i) => (
@@ -274,7 +276,7 @@ const Service = () => {
         className="py-16 px-[10vw] min-[1600px]:px-[18vw] text-black "
       >
         <div className={`space-y-10`}>
-          <SectionHeader title="Creative Designing" size={100} />
+          <SectionHeader title="Creative Designing" size={100} color="black"/>
           <div className="grid md:grid-cols-3 justify-center gap-6 ">
             {choices.map((item) => {
               return (
@@ -294,7 +296,7 @@ const Service = () => {
         className="py-16 px-[10vw] min-[1600px]:px-[18vw] text-white bg-[#121212] "
       >
         <div className={`space-y-10`}>
-          <SectionHeader title="Web Development" size={100} />
+          <SectionHeader title="Web Development" size={100}/>
           <div className="flex max-[450px]:flex-col flex-wrap justify-center gap-6 ">
             {developmentChoices.map((item) => {
               return (
@@ -315,7 +317,7 @@ const Service = () => {
         className="py-16 px-[10vw] min-[1600px]:px-[18vw] text-black "
       >
         <div className={`space-y-2`}>
-          <SectionHeader title="Web Application" size={100} />
+          <SectionHeader title="Web Application" size={100} color="black"/>
 
           <h1 className="w-full text-center text-[40px] max-[450px]:text-[30px] mt-5">
             EMPOWERING STARTUPS FOR BUSINESS GROWTH
@@ -326,7 +328,7 @@ const Service = () => {
             and make smarter decisions— all from a single, easy-to-use platform.
           </p>
 
-          <SectionHeader title="Features" size={100} />
+          <SectionHeader title="Features" size={100} color="black"/>
 
           <div className="flex max-[450px]:flex-col flex-wrap justify-center gap-6 mt-10">
             {features.map((item) => {

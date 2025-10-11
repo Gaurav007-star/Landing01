@@ -1,32 +1,36 @@
 import React from "react";
-import { Nav, Footer, Contact, SectionHeader } from "./App";
-import GotoTop from "./components/GotoTop";
+
+import GotoTop from "./components/ui/GotoTop";
+import Nav from "./components/layout/Nav";
+import { SectionHeader } from "./components/layout/SectionHeader";
+import Contact from "./components/layout/Contact";
+import Footer from "./components/layout/Footer";
 
 const Choice = [
   {
     title: "Creative Excellence",
-    desc: `Unique, impactful designs tailored to your brand.`
+    desc: `Unique, impactful designs tailored to your brand.`,
   },
   {
     title: "End-to-End Solutions",
-    desc: " From design to development to marketing, we’ve got you covered."
+    desc: " From design to development to marketing, we’ve got you covered.",
   },
   {
     title: "Client-Centric Approach",
-    desc: "Your goals are our priority. Your goals are our priority."
+    desc: "Your goals are our priority. Your goals are our priority.",
   },
   {
     title: "Experienced Team",
-    desc: "A skilled crew of designers,developers, and digital marketers."
+    desc: "A skilled crew of designers,developers, and digital marketers.",
   },
   {
     title: "On-Time Delivery",
-    desc: "We value your time and always deliver on schedule."
+    desc: "We value your time and always deliver on schedule.",
   },
   {
     title: "Cost efficiency",
-    desc: "Our farm design solutions maximize output while minimizing costs."
-  }
+    desc: "Our farm design solutions maximize output while minimizing costs.",
+  },
 ];
 
 const About = () => {
@@ -34,8 +38,8 @@ const About = () => {
     <div className="w-full h-max">
       <Nav />
 
-      <div className="about-section w-full h-max pt-40">
-        <SectionHeader title={"About Us"} size={100} />
+      <div className="about-section w-full h-max ">
+        <SectionHeader title={"About Us"} size={100} color="black" />
         <p className="w-full px-[10vw] text-[35px] text-center mt-5">
           We are a full-service digital agency specializing in Creative
           Designing, Web Development and Social Media Marketing. Our team is
@@ -73,7 +77,7 @@ const About = () => {
       <Contact />
       <Footer />
 
-      <GotoTop/>
+      <GotoTop />
     </div>
   );
 };
