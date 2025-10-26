@@ -4,7 +4,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 import BlackLogo from "@/assets/Teni_Logo-01.png";
 
 const container = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8";
@@ -32,13 +39,28 @@ export default function Contact() {
               <MapPin className="h-4 w-4" /> Kolkata, India
             </p>
             <div className="flex gap-3 pt-2">
-              <a href="#" className="p-2 rounded-full border hover:bg-white" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/teni-teni-341424390/"
+                target="_blank"
+                className="p-2 rounded-full border hover:bg-violet-700 hover:text-white hover:scale-105 transition-transform duration-500"
+                aria-label="LinkedIn"
+              >
                 <Linkedin className="h-4 w-4" />
               </a>
-              <a href="#" className="p-2 rounded-full border hover:bg-white" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/profile.php?id=61580939469487"
+                target="_blank"
+                className="p-2 rounded-full border hover:bg-violet-700 hover:text-white hover:scale-105 transition-transform duration-500"
+                aria-label="Facebook"
+              >
                 <Facebook className="h-4 w-4" />
               </a>
-              <a href="#" className="p-2 rounded-full border hover:bg-white" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/teni_tech/"
+                target="_blank"
+                className="p-2 rounded-full border hover:bg-violet-700 hover:text-white hover:scale-105 transition-transform duration-500"
+                aria-label="Instagram"
+              >
                 <Instagram className="h-4 w-4" />
               </a>
             </div>
@@ -52,7 +74,10 @@ export default function Contact() {
               <Input placeholder="Email address" type="email" />
             </div>
             <Input placeholder="Subject" />
-            <Textarea placeholder="Write your message…" className="min-h-[140px]" />
+            <Textarea
+              placeholder="Write your message…"
+              className="min-h-[140px]"
+            />
             <Button className="rounded-lg bg-slate-900 hover:bg-violet-700 cursor-pointer hover:scale-105 transition-transform duration-200">
               Send Message
             </Button>
