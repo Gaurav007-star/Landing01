@@ -33,7 +33,7 @@ export default function Contact() {
               <Mail className="h-4 w-4" /> teni.700121@gmail.com
             </p>
             <p className="flex items-center gap-2">
-              <Phone className="h-4 w-4" /> +91 83368 56076
+              <Phone className="h-4 w-4" /> +91 7059179945
             </p>
             <p className="flex items-center gap-2">
               <MapPin className="h-4 w-4" /> Kolkata, India
