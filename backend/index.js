@@ -83,11 +83,19 @@ app.post("/api/sendmail", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 app.get("/getvalue", (req, res) => {
   res.status(200).json({
     message: "GEt value"
   });
 });
+=======
+// app.get("/getvalue", (req, res) => {
+//   res.status(200).json({
+//     message: "GEt value"
+//   });
+// });
+>>>>>>> origin/main
 
 app.listen(process.env.PORT, () => {
   console.log("listining");
