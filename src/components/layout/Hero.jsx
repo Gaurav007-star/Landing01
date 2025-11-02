@@ -1,8 +1,12 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import SliderComponent from "@/components/ui/SliderComponent";
-import { FaFacebookSquare, FaInstagramSquare, FaLinkedin } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import {
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaLinkedin,
+} from "react-icons/fa";
+import { Link, useNavigate } from "react-router";
 import { Link as ScrollLink } from "react-scroll";
 
 export default function Hero() {
@@ -43,11 +47,23 @@ export default function Hero() {
         <SliderComponent />
       </div>
 
-      <div className="social absolute rotate-90 max-[450px]:hidden right-0 flex items-center gap-2 font-bold">
+      <div className="social absolute rotate-90 max-[450px]:hidden right-0 flex items-center gap-2 font-bold z-[1000]">
         <h1>Follow us on ---------------</h1>
-        <FaFacebookSquare className="text-[20px] text-violet-700" />
-        <FaInstagramSquare className="text-[20px] text-violet-700" />
-        <FaLinkedin className="text-[20px] text-violet-700" />
+        <Link
+          to={"https://www.facebook.com/profile.php?id=61580939469487"}
+          target="_blank"
+        >
+          <FaFacebookSquare className="text-[20px] text-violet-700" />
+        </Link>
+        <Link to={"https://www.instagram.com/teni_tech/"} target="_blank">
+          <FaInstagramSquare className="text-[20px] text-violet-700" />
+        </Link>
+        <Link
+          to={"https://www.linkedin.com/in/teni-teni-341424390/"}
+          target="_blank"
+        >
+          <FaLinkedin className="text-[20px] text-violet-700" />
+        </Link>
       </div>
     </section>
   );

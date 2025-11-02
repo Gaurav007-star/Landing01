@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Element } from "react-scroll";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -13,10 +13,65 @@ import {
   Instagram,
 } from "lucide-react";
 import BlackLogo from "@/assets/Teni_Logo-01.png";
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const container = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8";
 
 export default function Contact() {
+  const [userDetails, setUserDetails] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [captcha, setCaptcha] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const inputValueHandler = (e) => {
+    setUserDetails((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  function CaptchaHandler(value) {
+    // console.log("Captcha value:", value);
+    if (value) {
+      setCaptcha(value);
+    }
+  }
+
+  const SubmitContactHandler = async (e) => {
+    e.preventDefault();
+    const data = {
+      ...userDetails,
+      captchaKey: captcha,
+    };
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/sendmail",
+        data
+      );
+      // console.log("Send response", response);
+      toast.success(response.data?.message);
+      setLoading(false);
+      setUserDetails({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      toast.error(error.response?.data?.message);
+      setLoading(false);
+      // console.log(error);
+    }
+  };
+
   return (
     <Element
       name="contact"
@@ -68,20 +123,51 @@ export default function Contact() {
         </div>
 
         <Card className="rounded-2xl">
-          <CardContent className="p-6 space-y-4">
+          <form className="p-6 space-y-4" onSubmit={SubmitContactHandler}>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Input placeholder="Your name" />
-              <Input placeholder="Email address" type="email" />
+              <Input
+                placeholder="Your name"
+                name="name"
+                onChange={inputValueHandler}
+                required
+              />
+              <Input
+                placeholder="Email address"
+                type="email"
+                name="email"
+                onChange={inputValueHandler}
+                required
+              />
             </div>
-            <Input placeholder="Subject" />
+            <Input
+              placeholder="Subject"
+              name="subject"
+              onChange={inputValueHandler}
+              required
+            />
             <Textarea
               placeholder="Write your message…"
               className="min-h-[140px]"
+              name="message"
+              onChange={inputValueHandler}
+              required
             />
-            <Button className="rounded-lg bg-slate-900 hover:bg-violet-700 cursor-pointer hover:scale-105 transition-transform duration-200">
-              Send Message
+            <ReCAPTCHA
+              sitekey={import.meta.env.VITE_GOOGLE_CAPTCHA_SITE_KEY}
+              onChange={CaptchaHandler}
+            />
+
+            <Button
+              className="rounded-lg bg-slate-900 hover:bg-violet-700 cursor-pointer hover:scale-105 transition-transform duration-200"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="loading loading-dots loading-md"></span>
+              ) : (
+                "Send Message"
+              )}
             </Button>
-          </CardContent>
+          </form>
         </Card>
       </div>
     </Element>
