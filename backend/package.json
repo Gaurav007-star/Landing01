@@ -5,11 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-<<<<<<< HEAD
     "start":"node index.js"
-=======
-    "vercel-start":"node index.js"
->>>>>>> origin/main
   },
   "author": "",
   "license": "ISC",
