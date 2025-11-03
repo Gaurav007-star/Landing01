@@ -53,7 +53,7 @@ export default function Contact() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/sendmail",
+        "https://teni-kq7r.onrender.com/api/sendmail",
         data
       );
       // console.log("Send response", response);
@@ -66,7 +66,7 @@ export default function Contact() {
         message: "",
       });
     } catch (error) {
-      toast.error(error.response?.data?.message);
+      toast.error(error.response?.data?.message || "Failed to sent contact");
       setLoading(false);
       // console.log(error);
     }

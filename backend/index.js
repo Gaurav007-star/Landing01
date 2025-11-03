@@ -26,7 +26,7 @@ app.post("/api/sendmail", async (req, res) => {
     });
   }
 
-    if (!captchaKey) {
+  if (!captchaKey) {
     return res.status(400).json({
       message: "Please verify captcha!",
     });
@@ -50,7 +50,7 @@ app.post("/api/sendmail", async (req, res) => {
       pass: process.env.USER_AUTH_PASSWORD,
     },
   });
-  
+
   let mailOptions = {
     from: process.env.USER_AUTH_EMAIL,
     to: process.env.USER_RECEIVER_AUTH_EMAIL,
@@ -71,13 +71,13 @@ app.post("/api/sendmail", async (req, res) => {
     const responseData = await transporter.sendMail(mailOptions);
     // console.log(responseData);
 
-    res.status(200).json({
+    return res.status(200).json({
       message: "Message sent successfully",
     });
   } catch (error) {
     console.log(error);
-    
-    res.status(400).json({
+
+    return res.status(400).json({
       message: error?.message,
     });
   }
@@ -85,7 +85,7 @@ app.post("/api/sendmail", async (req, res) => {
 
 app.get("/getvalue", (req, res) => {
   res.status(200).json({
-    message: "GEt value"
+    message: "GEt value",
   });
 });
 
